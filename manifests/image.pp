@@ -31,14 +31,19 @@ define dockeragent::image (
     undef   => 'file:///var/cache/rubygems/',
     default => "http://${gateway_ip}:6789",
   }
+  $yum_server = $gateway_ip ? {
+    undef   => 'master.puppetlabs.vm',
+    default => "${gateway_ip}",
+  }
 
   $docker_files.each |$docker_file|{
     file { "/etc/docker/${title}/${docker_file}":
-      ensure            => file,
-      content           => epp("dockeragent/${docker_file}.epp",{
+      ensure                => file,
+      content               => epp("dockeragent/${docker_file}.epp",{
         'os_major'          => $::os['release']['major'],
-        'gateway_ip'        => $gateway_ip,
         'basename'          => $image_name,
+        'gateway_ip'        => $gateway_ip,
+        'yum_server'        => $yum_server,
         'yum_cache'         => $yum_cache,
         'install_agent'     => $install_agent,
         'lvm_bashrc'        => $lvm_bashrc,
