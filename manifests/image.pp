@@ -19,7 +19,6 @@ define dockeragent::image (
   $docker_files = [
     "Dockerfile",
     "puppet.conf",
-    "local_cache.repo",
     "yum.conf",
     "gemrc",
   ]
@@ -31,10 +30,6 @@ define dockeragent::image (
     undef   => 'file:///var/cache/rubygems/',
     default => "http://${gateway_ip}:6789",
   }
-  $yum_server = $gateway_ip ? {
-    undef   => 'master.puppetlabs.vm',
-    default => "${gateway_ip}",
-  }
 
   $docker_files.each |$docker_file|{
     file { "/etc/docker/${title}/${docker_file}":
@@ -43,8 +38,6 @@ define dockeragent::image (
         'os_major'          => $::os['release']['major'],
         'basename'          => $image_name,
         'gateway_ip'        => $gateway_ip,
-        'yum_server'        => $yum_server,
-        'yum_cache'         => $yum_cache,
         'install_agent'     => $install_agent,
         'lvm_bashrc'        => $lvm_bashrc,
         'install_dev_tools' => $install_dev_tools,
