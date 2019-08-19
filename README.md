@@ -1,10 +1,8 @@
-# pltraining/dockeragent
+# samuelson/dockeragent
 
-This module is used to configure simple Dockerized agent nodes for the classroom
-environment in Puppet Labs training courses. Unless you are an instructor, this
-is probably not the module you are looking for. It makes certain assumptions
-about the environment and is only flexible within the design specs of our
-training courses.
+This module is used to configure simple Dockerized agent nodes for use in training. 
+Unless you are taking a course to learn puppet, this is probably not the module 
+you are looking for.
 
 That being said, you're welcome to poke through it and see how we set things up.
 
@@ -50,7 +48,7 @@ you'll want to install them separately:
 
 ### Other projects:
 
-For another take on the idea of load testing the Puppet master, see
+For a module intended to be used for load testing the Puppet master, see
 https://github.com/puppetlabs/clamps.
 
 Contact
@@ -59,4 +57,4 @@ josh@joshsamuelson.com
 
 Attribution
 -----------
-This project is a fork of puppetlabs/pltraining-dockeragent. All changes up to 014e17a253817d91b5976d88b9c6784ff28e7c41 (including those made by me) should be attributed to puppelabs. All subsequent updates are my own. -Josh Samuelson
+This project is a fork of puppetlabs/pltraining-dockeragent. All changes up to 014e17a253817d91b5976d88b9c6784ff28e7c41 (including those made by me) should be attributed to puppelabs. All subsequent updates are my own or are community contributions to this project. -Josh Samuelson
