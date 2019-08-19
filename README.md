@@ -55,5 +55,8 @@ https://github.com/puppetlabs/clamps.
 
 Contact
 -------
+josh@joshsamuelson.com
 
-education@puppetlabs.com
+Attribution
+-----------
+This project is a fork of puppetlabs/pltraining-dockeragent. All changes up to 014e17a253817d91b5976d88b9c6784ff28e7c41 (including those made by me) should be attributed to puppelabs. All subsequent updates are my own. -Josh Samuelson
